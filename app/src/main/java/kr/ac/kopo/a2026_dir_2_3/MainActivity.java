@@ -13,13 +13,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    // 버튼 객체들을 미리 만들어둔다.
     Button btnHome, btnCall, btnGallery, btnEnd;
 
+    // 아래 동작들은, 화면이 생성될 때(OnCreate) 실행된다.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); // 대충 여기까지 화면 로드하고, 화면 구성해서 보여준다 이 소리 같음.
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
